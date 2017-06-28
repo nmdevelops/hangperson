@@ -1,20 +1,33 @@
-# _{Application Name}_
+# _Hangperson_
 
-#### _{Brief description of application}, {Date of current version}_
+#### _A politically more correct version of the classic Hangman, word guessing game, 6/28/2017_
 
-#### By _**{List of contributors}**_
+#### By _**Nathan E. M. Mayer & Michael Brooks**_
 
 ## Description
 
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
+_The word to guess is represented by a row of dashes, representing each letter of the word. In most variants, proper nouns, such as names, places, and brands, are not allowed. Slang words, sometimes referred to as informal or shortened words, are also not allowed. If the guessing player suggests a letter which occurs in the word, the other player writes it in all its correct positions. If the suggested letter or number does not occur in the word, the other player draws one element of a hanged man stick figure as a tally mark.
+
+The player guessing the word may, at any time, attempt to guess the whole word. If the word is correct, the game is over and the guesser wins. Otherwise, the other player may choose to penalize the guesser by adding an element to the diagram. On the other hand, if the other player makes enough incorrect guesses to allow his opponent to complete the diagram, the game is also over, this time with the guesser losing. However, the guesser can also win by guessing all the letters or numbers that appears in the word, thereby completing the word, before the diagram is completed. (wikipedia : https://en.wikipedia.org/wiki/Hangman_(game) as accessed 6/26/2017 at 11:26am_
 ## Specifications
 
-| Rank  | Behavior  | Input  | Output |
-|---|---|---|---|
-|   |   |   |   |
-|   |   |   |   |
-|   |   |   |   |
+_* assume a targetWord of "donkey"_
 
+| Rank  | Behavior          | I   |          O       |
+|-------|-------------------|-----|------------------|
+|1|Accept user input        |"o"  |var guess = "o"   |
+|2|Accept only 1 character  |"on" | "false"          |
+|3|Accept only letters      | "4" | "false"          |
+|4|Guess to lower case      | "A" | "a"              |
+|-|----End Code Section     |     |                  |
+|5|Check is guess in targetWord| "d" | "true"|
+|6| if in word push to wordBlanks| "d" | [d,?,?,?,?,?]|
+|7|If guess not in WORD add to WRONG GUESS |"z"| ["z"]|
+|8|Display WORD BLANKS (HTML) |*[d,?,?,?,?,?]| d  ?  ?  ?  ? ?|
+|9|Display WRONG GUESS (HTML) |["z"]  | Wrong guess: z|
+|10|Game over occurs at 6 incorrect guesses | wrongGuess.length === 6 | GAME OVER|
+|11| Game Won occurs at revealed word | | |
+|12| Increase available vocabulary |
 
 ## Setup/Installation Requirements
 
@@ -40,6 +53,6 @@ _{Tell me about the languages and tools you used to create this app. Assume that
 
 ### License
 
-*{Determine the license under which this application can be used.  See below for more details on licensing.}*
+*This software licensed under the MIT license.*
 
-Copyright (c) 2017 **_{List of contributors or company name}_**
+Copyright (c) 2017 **_Nathan E. M. Mayer & Michael Brooks_**

@@ -2,6 +2,32 @@ body {
   margin-top: 20px;
 }
 
-.gameOver {
+#gameOver {
   display: none;
+}
+
+#gameWon {
+  display: none;
+}
+
+.userInputs {
+  display: none;
+}
+
+input {
+  text-align: center;
+}
+
+#wordBlanks, #wrongGuess {
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 5px;
+}
+
+.wordBlanks {
+  text-align: center;
+}
+
+h1  {
+  text-align: center;
 }

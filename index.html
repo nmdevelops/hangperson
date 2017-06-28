@@ -5,29 +5,40 @@
     <link rel="stylesheet" href="css/styles.css" type="text/css">
     <script src="js/jquery-3.2.1.js" type="text/javascript"></script>
     <script src="js/scripts.js" type="text/javascript"></script>
-    <title></title>
+    <title>Word Guess Game</title>
   </head>
   <body>
     <div class="container">
-      <div class="userInputs">
-        <form>
-          <div class="form-group">
-            <label for="guess">What letter do you choose?</label>
-            <input type="text" id="guess">
-          </div>
-          <button type="submit" class="btn">Try this</button>
-        </form>
-      </div>
+      <h1>Word Guessing Game</h1>
+
       <div class="wordBlanks">
         <p><span id="wordBlanks"></span></p>
       </div>
+
+      <div class="beginGame">
+        <button type="button" class="btn" id="gameSetup">Set up New Game</button>
+      </div>
+      <div class="userInputs">
+        <form id="formToClear">
+          <div class="form-group">
+            <label for="guess">What letter do you choose?</label>
+            <input type="text" id="guess" value="" autocomplete="off" maxlength="1" size="1" >
+          </div>
+          <p><span id="validationError"></span></p>
+          <button type="submit" class="btn">Make Your Guess</button>
+        </form>
+      </div>
+
       <div class="wrongGuess">
         <p><span id="wrongGuess"></span></p>
       </div>
-      <div class="gameOver">
-        <p>GAME OVER!!</p>
-        <p><span id="targetWord"></span></p>
-      </div>
+        <div class="jumbotron" id="gameOver">
+          <p>GAME OVER!!</p>
+          <p>The Word was :<span id="targetWord"></span></p>
+        </div>
+        <div class="jumbotron" id="gameWon">
+          <p>YOU WIN!!</p>
+        </div>
     </div>
   </body>
 </html>
