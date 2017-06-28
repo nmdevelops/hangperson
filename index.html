@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <script src="js/jquery-3.2.1.js" type="text/javascript"></script>
+    <script src="js/scripts.js" type="text/javascript"></script>
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="userInputs">
+        <form>
+          <div class="form-group">
+            <label for="guess">What letter do you choose?</label>
+            <input type="text" id="guess">
+          </div>
+          <button type="submit" class="btn">Try this</button>
+        </form>
+      </div>
+      <div class="wordBlanks">
+        <p><span id="wordBlanks"></span></p>
+      </div>
+      <div class="wrongGuess">
+        <p><span id="wrongGuess"></span></p>
+      </div>
+      <div class="gameOver">
+        <p>GAME OVER!!</p>
+        <p><span id="targetWord"></span></p>
+      </div>
+    </div>
+  </body>
+</html>
