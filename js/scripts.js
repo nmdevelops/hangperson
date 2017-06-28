@@ -5,6 +5,7 @@ var randomIndex;
 var targetWord;
 var wordBlanks = [];
 var wordBlanksString;
+var wordBlanksStringWin;
 var wordBlanksStringClean;
 var wrongGuess = [];
 var notIt = [];
@@ -23,6 +24,7 @@ var wordGenerator = (function() {
   randomize(0,wordBank.length);
   targetWord = wordBank [randomIndex];
   iteration = targetWord.length;
+  console.log(targetWord);
 });
 
 var gameSetup = (function() {
@@ -30,11 +32,11 @@ var gameSetup = (function() {
   for (var n = 0; n < iteration; n++) {
     wordBlanks.push("_");
   }
-    iteration -= targetWord.length;
-
+  iteration -= targetWord.length;
   $(".userInputs").show();
   $(".beginGame").hide();
   $("#gameOver").hide();
+  $("#gameWon").hide();
   wordBlanks.fill("_");
   wordBlanksString = wordBlanks.join();
   wordBlanksStringClean = wordBlanksString.replace(/,/g, '  ');
@@ -60,13 +62,15 @@ var isGameOver = (function() {
 });
 
 var isGameWon = (function() {
-  if (targetWord === wordBlanks) {
+  if (targetWord === wordBlanksStringWin) {
     $("#gameWon").show();
+    $(".userInputs").hide();
+    $(".beginGame").show();
   }
 })
 
 var hangperson = (function() {
-  if (validate.length === 1) {
+  if (validate.length === 1) { //test is redundant and needs to be refactored
     if (alphabetPublic.indexOf(validate.toLowerCase()) >= 0) {
       guess = validate.toLowerCase();
     } else {
@@ -75,10 +79,6 @@ var hangperson = (function() {
   } else {
     $("#validationError").text ("Enter only one letter!");
   }
-
-
-
-
   for (var i = 0; i < targetWord.length; i++) {
     if (targetWord.charAt(i) === guess) {
       wordBlanks.splice(i,1,guess);
@@ -91,10 +91,9 @@ var hangperson = (function() {
     $("#wrongGuess").text("Wrong guess: " + wrongGuess);
   }
   wordBlanksString = wordBlanks.join();
+  wordBlanksStringWin = wordBlanksString.replace(/,/g, '');
   wordBlanksStringClean = wordBlanksString.replace(/,/g, '  ');
-
   $("#wordBlanks").text(wordBlanksStringClean);
-
   document.getElementById("formToClear").reset();
 });
 
@@ -106,11 +105,8 @@ $(document).ready(function() {
     wordGenerator();
     gameSetup();
   });
-
   $(".userInputs form").submit(function(event) {
     event.preventDefault();
-        // document.getElementById("input#guess").reset("");
-
     validate = $("input#guess").val();
     formReset();
     hangperson();
@@ -118,4 +114,3 @@ $(document).ready(function() {
     isGameWon();
   });
 });
-// $("input#guess").val()

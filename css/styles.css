@@ -1,5 +1,7 @@
 body {
   margin-top: 20px;
+  background-color: green;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #gameOver {
@@ -8,6 +10,11 @@ body {
 
 #gameWon {
   display: none;
+}
+
+label {
+    font-size: 18px;
+    color: white;
 }
 
 .userInputs {
@@ -22,6 +29,8 @@ input {
   font-size: 26px;
   font-weight: bold;
   letter-spacing: 5px;
+  font-family: 'Walter Turncoat', cursive;
+  color: white;
 }
 
 .wordBlanks {
@@ -30,4 +39,5 @@ input {
 
 h1  {
   text-align: center;
+  color: white;
 }
